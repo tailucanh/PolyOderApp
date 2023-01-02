@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:id="@+id/layout_main"
+   >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fade_control"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:fabAlignmentMode="center"
+            app:fabCradleMargin="@dimen/dimen_10dp"
+            app:fabCradleRoundedCornerRadius="@dimen/dimen_45dp"
+            app:fabCradleVerticalOffset="@dimen/dimen_10dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_background"
+                app:itemIconTint="@color/bottom_nav_icon_color"
+                app:itemTextColor="@color/brown_270"
+                app:menu="@menu/menu_home" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+        <com.andremion.counterfab.CounterFab
+            android:id="@+id/fab_oder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F6F1F1"
+            android:src="@drawable/ic_cart"
+            app:backgroundTint="@color/white"
+            app:layout_anchor="@id/bottom_appbar"
+            app:maxImageSize="30dp"
+            app:badgeBackgroundColor="@color/brown_110"
+            app:badgePosition="RightTop"
+            app:badgeTextColor="@color/white"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+</FrameLayout>

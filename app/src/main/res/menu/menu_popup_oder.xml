@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tvAll"
+        android:icon="@drawable/ic_home"
+        android:title="Tất cả đơn" />
+    <item
+        android:id="@+id/tvPaySuccess"
+        android:icon="@drawable/ic_cart"
+        android:title="Đơn thanh toán" />
+    <item
+        android:id="@+id/tvOderCancel"
+        android:title="Đơn hủy" />
+
+
+</menu>

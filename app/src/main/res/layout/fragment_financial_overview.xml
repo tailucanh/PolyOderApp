@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grey_40"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/dimen_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dimen_10dp">
+            <ImageView
+                android:id="@+id/icBack"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey_350" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Báo cáo doanh thu"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_19dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:id="@+id/layoutTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:paddingStart="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/grey_100" />
+        <TextView
+            android:id="@+id/tvFilterTime"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_23dp"
+            android:text="Năm nay"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16dp"/>
+        <ImageView
+            android:layout_width="@dimen/dimen_25dp"
+            android:layout_height="@dimen/dimen_25dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_down"
+            android:layout_gravity="bottom"
+            app:tint="@color/grey_100" />
+<!--        <ImageView-->
+<!--            android:id="@+id/icRotateScreen"-->
+<!--            android:layout_width="@dimen/dimen_25dp"-->
+<!--            android:layout_height="@dimen/dimen_25dp"-->
+<!--            android:src="@drawable/ic_screen_rotate"-->
+<!--            android:layout_marginEnd="@dimen/dimen_15dp"/>-->
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_20dp"
+        app:cardElevation="@dimen/dimen_5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+           >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:paddingHorizontal="@dimen/dimen_15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lợi nhuận"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/dimen_17dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"/>
+                <TextView
+                    android:id="@+id/tvProfit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end|center"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/dimen_20dp"/>
+
+
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barCharTurnover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/content_financial_overview"
+                android:layout_marginVertical="@dimen/dimen_5dp"
+                android:textColor="@color/grey_150"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:layout_marginHorizontal="@dimen/dimen_10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/dimen_13dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

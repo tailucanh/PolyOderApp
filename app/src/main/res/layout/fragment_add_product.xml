@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/grey_20">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/dimen_10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dimen_10dp">
+            <ImageView
+                android:id="@+id/icClose"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:src="@drawable/ic_round_close"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey_350" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="Thêm sản phẩm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_20dp"
+                app:layout_constraintVertical_bias="0.022"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icClose"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icSaveProduct"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:src="@drawable/ic_round_check"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tvTitle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/dimen_6dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="@dimen/dimen_20dp"
+               >
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cavImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_20dp"
+                    app:cardCornerRadius="@dimen/dimen_8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+                    <ImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="@dimen/dimen_200dp"
+                        android:layout_height="@dimen/dimen_150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_product"/>
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:id="@+id/ic_add_img"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:elevation="@dimen/dimen_6dp"
+                    android:layout_alignEnd="@+id/cavImg"
+                    android:background="@drawable/custom_bg_camera"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_outline_camera"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:tint="@color/grey_200" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvAddImgProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/content_add_img_product"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginHorizontal="@dimen/dimen_15dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                app:cardCornerRadius="@dimen/dimen_20dp"
+                app:cardElevation="@dimen/dimen_10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/dimen_10dp">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/grey_100"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextColor="@color/grey_100"
+                        android:layout_marginTop="@dimen/dimen_5dp"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edNameProduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/grey_150"
+                            android:hint="Tên sản phẩm"
+                            android:fontFamily="@font/poppins_medium"
+                            android:inputType="text"
+                            android:paddingStart="@dimen/dimen_10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_18dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/grey_100"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextColor="@color/grey_100"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edDescribe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/grey_150"
+                            android:hint="Mô tả"
+                            android:fontFamily="@font/poppins_medium"
+                            android:inputType="text"
+                            android:paddingStart="@dimen/dimen_10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_18dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginVertical="@dimen/dimen_3dp"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        android:background="@drawable/custom_view_spinner"
+                        android:padding="@dimen/dimen_8dp">
+
+                            <TextView
+                                android:id="@+id/tvContent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Loại sản phẩm"
+                                android:textColor="@color/grey_200"
+                                android:textSize="@dimen/dimen_15dp"
+                              />
+                                <Spinner
+                                    android:id="@+id/spinnerType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    />
+
+                    </LinearLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/grey_100"
+                        app:hintAnimationEnabled="true"
+                        app:hintTextColor="@color/grey_100"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        android:layout_marginBottom="10dp"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/grey_150"
+                            android:hint="Giá tiền"
+                            android:fontFamily="@font/poppins_medium"
+                            android:inputType="number"
+                            android:paddingStart="@dimen/dimen_10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_18dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginHorizontal="@dimen/dimen_15dp"
+                app:cardCornerRadius="@dimen/dimen_20dp"
+                app:cardElevation="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_30dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/grey_100"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/grey_100"
+                    android:layout_marginHorizontal="@dimen/dimen_15dp"
+                    android:layout_margin="10dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/grey_150"
+                        android:hint="Ghi chú"
+                        android:fontFamily="@font/poppins_medium"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/dimen_10dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_18dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_15dp"
+                android:elevation="@dimen/dimen_5dp"
+                android:layout_marginVertical="@dimen/dimen_30dp"
+                app:cardBackgroundColor="@color/brown_110"
+                app:cardCornerRadius="@dimen/dimen_20dp"
+                >
+                <Button
+                    android:id="@+id/btnSaveProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:textAllCaps="false"
+                    android:text="Lưu"
+                    android:textSize="@dimen/dimen_20dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semi_bold"/>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

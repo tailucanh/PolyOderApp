@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729039221909",
+    "project_id": "cash-coffe-98227",
+    "storage_bucket": "cash-coffe-98227.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729039221909:android:789f2927c22d043654979c",
+        "android_client_info": {
+          "package_name": "com.example.duan1_mananger.base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729039221909-88opr2ig83u7fun1fr5ie19kapk019bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2lwtBf_yR9wGBwtTd0Q5rQfBmI4WpaN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729039221909-88opr2ig83u7fun1fr5ie19kapk019bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/dialog_chooser_function"
+        android:elevation="10dp"
+        android:background="@drawable/custom_border_view_function_img_product"
+        android:layout_gravity="bottom"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingTop="@dimen/dimen_10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chọn thao tác"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginVertical="@dimen/dimen_5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+
+            />
+        <TextView
+            android:id="@+id/tvChangeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Sửa thông tin bàn"
+            android:textColor="@color/grey_300"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:textSize="@dimen/dimen_16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginVertical="@dimen/dimen_10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+
+            />
+        <TextView
+            android:id="@+id/tvDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Xóa bàn"
+            android:textColor="@color/grey_300"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:textSize="@dimen/dimen_16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginVertical="@dimen/dimen_10dp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

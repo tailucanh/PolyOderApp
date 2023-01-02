@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">PolyOder</string>
+    <string name="hello_blank_fragment">Hello</string>
+
+    <string name="hello_screen_title_1">Chào mừng bạn đến với</string>
+    <string name="hello_screen_title_2">PolyOder</string>
+    <string name="hello_screen_text_footer">Copy right ©2022. All rights reserved.</string>
+
+    <string name="sign_up_text_content">Đăng kí ngay để sử dụng ứng dụng \n quản lí bán hàng miễn phí</string>
+    <string name="sign_up_text_hint_name">Họ và tên</string>
+    <string name="sign_up_text_hint_email">Email của bạn</string>
+    <string name="sign_up_text_hint_pass">Mật khẩu</string>
+    <string name="sign_up_text_hint_re_pass">Nhập lại mật khẩu</string>
+    <string name="sign_up_text_button">Đăng kí ngay</string>
+
+    <string name="sign_in_text_title">Đăng nhập</string>
+    <string name="sign_in_text_hint_email">Email</string>
+    <string name="sign_in_text_hint_pass">Mật khẩu</string>
+    <string name="text_forgot_pass"><u>Quên mật khẩu ?</u></string>
+
+
+    <string name="sign_in_text_button">Đăng nhập</string>
+    <string name="sign_in_text_content_1">Nếu bạn chưa có tài khoản ?</string>
+    <string name="sign_in_text_content_2"><i>Đăng kí ngay </i></string>
+    <string name="sign_in_text_content_3">Hoặc đăng nhập bằng</string>
+
+    <string name="forgot_pass_title">Quên mật khẩu </string>
+    <string name="forgot_pass_hint">Email của bạn</string>
+    <string name="forgot_pass_content">Hãy nhập tài khoản email bạn đã \n đăng kí để khôi phục mật khẩu.</string>
+    <string name="forgot_pass_text_button">Gửi</string>
+
+    <string name="notifi_login_success">Đăng nhập thành công!</string>
+    <string name="notifi_login_fail">Đăng nhập thất bại! Kiểm tra tên email,password hoặc đăng kí tài khoản!</string>
+    <string name="notifi_login_fail_2">Hãy đăng kí tài khoản để sử dụng dịch vụ!</string>
+    <string name="notifi_sign_up_success">Đăng ký thành công! Hãy đăng nhập!</string>
+    <string name="notifi_sign_up_fail">Bạn đã nhập sai mật khẩu hoặc email!</string>
+    <string name="notifi_forgot_pass_success">Đã gửi! Hãy kiểm tra email của bạn và đăng nhập lại!</string>
+    <string name="notifi_forgot_pass_fail">Không gửi được! Hãy kiểm tra lại email!</string>
+
+    <string name="error_name">Hãy nhập họ tên của bạn!</string>
+    <string name="error_email_1">Hãy nhập email của bạn!</string>
+    <string name="error_email_2">Nhập emai đúng định dạng \'abc@gmail.com\'.</string>
+    <string name="error_pass_1">Hãy nhập password!</string>
+    <string name="error_pass_2">Password chưa trùng khớp!</string>
+
+    <string name="text_menu_nav_home">Tổng quan</string>
+    <string name="text_menu_nav_cart">Tạo đơn</string>
+    <string name="text_menu_nav_product">Sản phẩm</string>
+    <string name="text_menu_nav_setting">Cài đặt</string>
+    <string name="content_setting_user">(<font color='red'>*</font>Hoàn thiện thông tin cá nhân của bạn )</string>
+    <string name="content_setting_turnover_1">Báo cáo doanh thu</string>
+    <string name="content_setting_turnover_2">Thống kê đơn hàng</string>
+    <string name="content_setting_turnover_3">Tổng quan tài chính</string>
+    <string name="text_setting_chat">Trò chuyện với PolyOder</string>
+    <string name="text_setting_logout">Đăng xuất</string>
+    <string name="text_title_change_profile">Sửa thông tin tài khoản</string>
+    <string name="text_name_change_profile">Họ và tên<font color='red'>*</font></string>
+    <string name="text_phone_change_profile">Số điện thoại</string>
+    <string name="text_email_change_profile">Email</string>
+    <string name="text_address_change_profile">Địa chỉ</string>
+    <string name="text_birth_change_profile">Ngày sinh</string>
+    <string name="text_sex_change_profile">Giới tính</string>
+    <string name="text_hint_search_product">Tìm tên sản phẩm</string>
+    <string name="text_hint_search_table">Tìm tên bàn</string>
+    <string name="text_hint_search_oder_save">Tìm tên đơn</string>
+    <string name="text_hint_search_oder">Tên đơn, ngày tháng, giờ</string>
+    <string name="text_hint_search_staff">Tên nhân viên</string>
+    <string name="text_hint_search_type_product">Nhập tên loại</string>
+
+    <string name="text_title_type_product">Loại sản phẩm</string>
+    <string name="text_add_type_product">Thêm loại sản phẩm</string>
+    <string name="text_type_product_1">Tất cả các loại sản phẩm</string>
+
+    <string name="text_header_home_1">Xin chào</string>
+    <string name="text_header_home_name">Lục Anh Tài</string>
+    <string name="text_header_home_2">Chào mừng quay trở lại !</string>
+    <string name="text_button_function_home_cart">Đơn hàng</string>
+    <string name="text_button_function_home_product">Sản phẩm</string>
+    <string name="text_button_function_home_turnover">Doanh thu</string>
+    <string name="text_button_function_home_chat">PolyChat</string>
+
+    <string name="text_button_table_home_all">Tất cả bàn</string>
+    <string name="text_button_table_home_empty">Bàn trống</string>
+    <string name="text_button_table_home_open">Bàn đang mở</string>
+    <string name="notification_cancel_oder">Đơn hàng sẽ bị hủy và bạn có thể khôi phục nó trong lịch sử thống kê đơn hàng.</string>
+    <string name="content_add_img_product">(<font color='red'>*</font>Thêm ảnh minh họa)</string>
+
+    <string name="content_financial_overview"><font color='red'>*</font> Các số liệu được lấy từ thống kê doanh thu đơn hàng và thống kê theo từng tháng</string>
+    <string name="content_financial_overview_2"><font color='red'>*</font> Các số liệu được lấy từ thống kê doanh thu đơn hàng  và thống kê theo từng ngày</string>
+    <string name="text_suggest">Bạn không thể hủy đơn hàng khi đã lưu đơn. Nếu phát sinh sự cố về đơn hàng hoặc khách hàng hay vấn đề liên quan. Hãy liên hệ quản lý để có thể hủy đơn.</string>
+</resources>

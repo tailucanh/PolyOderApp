@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen_5dp">
+        <TextView
+            android:id="@+id/tvCountProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="left"
+            android:fontFamily="@font/kanit_regular"
+            android:text=" 1"
+            android:textColor="@color/grey_200"
+            android:textSize="@dimen/dimen_14dp" />
+
+        <TextView
+            android:id="@+id/tvPriceProductPrint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="left"
+            android:fontFamily="@font/kanit_regular"
+            android:text="100000Đ"
+            android:textColor="@color/grey_200"
+            android:textSize="@dimen/dimen_14dp"
+            />
+        <TextView
+            android:id="@+id/tvNameProductPrint"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Cà phê"
+            android:textColor="@color/grey_200"
+            android:textSize="@dimen/dimen_14dp"
+            />
+        <TextView
+            android:id="@+id/tvTotalProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="right"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Tổng tiền"
+            android:textColor="@color/grey_200"
+            android:textSize="@dimen/dimen_14dp"
+            />
+
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:background="@drawable/custom_border_evaluate"
+        android:orientation="vertical">
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="@dimen/dimen_150dp"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gif_start"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá trải nghiệm của bạn \ntrên nền tảng PolyOder"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/brown_300"
+            android:textSize="@dimen/dimen_17dp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:numStars="5"
+            android:rating="5"
+            android:stepSize="1"
+            android:theme="@style/RatingBar"
+            />
+        <TextView
+            android:id="@+id/tvEvaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rất tốt"
+            android:layout_gravity="right"
+            android:layout_marginEnd="@dimen/dimen_22dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_18dp"
+            android:fontFamily="@font/poppins_medium"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_marginVertical="@dimen/dimen_5dp"
+                app:cardElevation="@dimen/dimen_3dp"
+                app:cardCornerRadius="@dimen/dimen_30dp"
+                >
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:text="Hủy"
+                    android:paddingHorizontal="@dimen/dimen_40dp"
+                    android:background="@drawable/custom_button_dialog_evaluate"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/dimen_19dp"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginVertical="@dimen/dimen_5dp"
+                app:cardElevation="@dimen/dimen_3dp"
+                app:cardCornerRadius="@dimen/dimen_30dp"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                >
+                <Button
+                    android:id="@+id/btnSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:text="Gửi"
+                    android:paddingHorizontal="@dimen/dimen_40dp"
+                    android:background="@color/brown_70"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/dimen_19dp"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+    <LinearLayout
+        android:id="@+id/layoutErr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_90dp"
+        android:gravity="center|left"
+        android:layout_gravity="top"
+        android:background="@color/red_200"
+        android:paddingHorizontal="@dimen/dimen_20dp">
+        <ImageView
+            android:id="@+id/imgErr"
+            android:layout_width="@dimen/dimen_45dp"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_alert_octagon"/>
+        <TextView
+            android:id="@+id/tvErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lỗi nhập thông tin"
+            android:maxLines="3"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/dimen_17dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

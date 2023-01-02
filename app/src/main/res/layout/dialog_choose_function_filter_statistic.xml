@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/dialog_chooser_function"
+        android:elevation="10dp"
+        android:background="@drawable/custom_border_view_function_img_product"
+        android:layout_gravity="bottom"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingTop="@dimen/dimen_10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+           >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="Chọn báo cáo"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_19dp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginVertical="@dimen/dimen_5dp"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+            />
+
+        <LinearLayout
+            android:id="@+id/layoutFilterCompleteOder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen_10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Thống kê theo ngày hoàn thành đơn"
+                android:textColor="@color/grey_150"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_16dp"
+                android:fontFamily="@font/poppins_medium"
+               />
+            <ImageView
+                android:id="@+id/icFilter1"
+                android:layout_width="@dimen/dimen_22dp"
+                android:layout_height="@dimen/dimen_22dp"
+                android:layout_marginEnd="@dimen/dimen_13dp"
+                android:src="@drawable/ic_check_type"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+            android:layout_marginVertical="@dimen/dimen_7dp"
+            />
+        <LinearLayout
+            android:id="@+id/layoutFilterCancelOder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Thống kê theo ngày hủy đơn"
+                android:textColor="@color/grey_150"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_16dp"
+                android:fontFamily="@font/poppins_medium"
+                />
+            <ImageView
+                android:id="@+id/icFilter2"
+                android:layout_width="@dimen/dimen_22dp"
+                android:layout_height="@dimen/dimen_22dp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/dimen_13dp"
+                android:src="@drawable/ic_check_type"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+            android:layout_marginVertical="@dimen/dimen_7dp"
+            />
+        <LinearLayout
+            android:id="@+id/layoutFilterOderToTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Thống kê theo thanh toán tại bàn"
+                android:textColor="@color/grey_150"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_16dp"
+                android:fontFamily="@font/poppins_medium"
+                />
+            <ImageView
+                android:id="@+id/icFilter3"
+                android:layout_width="@dimen/dimen_22dp"
+                android:layout_height="@dimen/dimen_22dp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/dimen_13dp"
+                android:src="@drawable/ic_check_type"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_70"
+            android:layout_marginVertical="@dimen/dimen_7dp"
+            />
+        <LinearLayout
+            android:id="@+id/layoutFilterOderTakeOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Thống kê theo thanh toán đem về"
+                android:textColor="@color/grey_150"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_16dp"
+                android:fontFamily="@font/poppins_medium"
+                />
+            <ImageView
+                android:id="@+id/icFilter4"
+                android:layout_width="@dimen/dimen_22dp"
+                android:layout_height="@dimen/dimen_22dp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/dimen_13dp"
+                android:src="@drawable/ic_check_type"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

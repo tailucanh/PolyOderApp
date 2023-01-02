@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_40dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLoginCode"
+                style="@style/styleTilEditTextLogin"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edLoginCode"
+                    style="@style/styleEditTextLogin"
+                    android:drawableStart="@drawable/ic_password"
+                    android:inputType="numberPassword"
+                    android:background="@android:color/transparent"
+                    android:hint="Mã đăng nhập"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cavButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:layout_marginBottom="@dimen/dimen_30dp"
+                app:cardElevation="@dimen/dimen_8dp">
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_in_text_button"
+                    android:textAllCaps="false"
+                    android:paddingHorizontal="@dimen/dimen_40dp"
+                    android:background="@drawable/custom_button_login"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/dimen_20dp"
+                    android:textColor="@color/black"
+                    />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

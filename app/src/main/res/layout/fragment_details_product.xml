@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/grey_20"
+    android:id="@+id/bgDetailsProduct">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/dimen_10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dimen_10dp">
+            <ImageView
+                android:id="@+id/icBack"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey_350" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="Chi tiết sản phẩm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_20dp"
+                app:layout_constraintVertical_bias="0.022"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icEditProduct"
+                android:layout_width="@dimen/dimen_30dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:src="@drawable/ic_outline_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/tvTitle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                app:tint="@color/grey_100" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cavImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_15dp"
+                android:layout_marginVertical="@dimen/dimen_25dp"
+                app:cardCornerRadius="@dimen/dimen_8dp"
+                 >
+                <ImageView
+                    android:id="@+id/imgProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_product"/>
+            </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginHorizontal="@dimen/dimen_15dp"
+            app:cardCornerRadius="@dimen/dimen_20dp"
+            app:cardElevation="@dimen/dimen_10dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingHorizontal="@dimen/dimen_10dp"
+                android:paddingBottom="@dimen/dimen_30dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvNameProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cappuccino"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp"
+                    app:layout_constraintHorizontal_bias="0.07"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:paddingHorizontal="@dimen/dimen_10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvNameProduct"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0">
+                    <TextView
+                        android:id="@+id/tvContent1"
+                        android:layout_width="@dimen/dimen_150dp"
+                        android:layout_height="wrap_content"
+                        android:text="Mô tả: "
+                        android:textSize="@dimen/dimen_16dp"
+                        android:textColor="@color/grey_100"
+
+                        android:gravity="left"
+                        />
+                    <TextView
+                        android:id="@+id/tvDescribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kết hợp chocolate "
+                        android:textColor="@color/grey_300"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/dimen_16dp"
+                        android:gravity="left"
+                   />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:paddingHorizontal="@dimen/dimen_10dp"
+                    app:layout_constraintTop_toBottomOf="@id/layout1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintVertical_bias="0">
+                    <TextView
+                        android:id="@+id/tvContent2"
+                        android:layout_width="@dimen/dimen_150dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="Loại: "
+                        android:textSize="@dimen/dimen_16dp"
+                        android:textColor="@color/grey_100"
+                        android:gravity="left"
+                        />
+                    <TextView
+                        android:id="@+id/tvTypeProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cà phê"
+                        android:textColor="@color/grey_300"
+                        android:textSize="@dimen/dimen_16dp"
+                        android:gravity="left"
+
+                  />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:layout_constraintTop_toBottomOf="@id/layout2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0">
+                    <TextView
+                        android:id="@+id/tvContent3"
+                        android:layout_width="@dimen/dimen_150dp"
+                        android:layout_height="wrap_content"
+                        android:text="Giá bán: "
+                        android:textSize="@dimen/dimen_16dp"
+                        android:textColor="@color/grey_100"
+
+                        />
+                    <TextView
+                        android:id="@+id/tvPriceProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="45.000đ"
+                        android:textColor="@color/grey_300"
+                        android:textSize="@dimen/dimen_16dp"
+                        android:textStyle="bold"
+
+                    />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dimen_30dp"
+             >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ghi chú thêm"
+                    android:layout_gravity="center|top"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp"
+                    android:elevation="@dimen/dimen_7dp"
+                    android:fontFamily="@font/poppins_medium"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_80dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_marginHorizontal="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginBottom="@dimen/dimen_30dp"
+                    app:cardCornerRadius="@dimen/dimen_20dp"
+                    app:cardElevation="@dimen/dimen_6dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="@dimen/dimen_15dp">
+
+                        <TextView
+                            android:id="@+id/tvNoteProduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Ghi chú"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_17dp"
+
+                            app:layout_constraintVertical_bias="0.4"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/grey_70"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintVertical_bias="0.85"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnDeleteProduct"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="@dimen/dimen_50dp"
+                android:text="Xóa sản phẩm"
+                android:textColor="@color/red"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18dp"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/custom_button_details_product"/>
+
+            
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
