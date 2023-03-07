@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".setting.UpdateUserFragment">
+    tools:context=".setting.users.UpdateUserFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
@@ -32,12 +32,12 @@
             android:text="@string/text_title_change_profile"
             android:textColor="@color/black"
             android:textSize="@dimen/dimen_18dp"
-            app:layout_constraintVertical_bias="0.022"
-            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/icBack"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
 
         <ImageView
             android:id="@+id/icSave"
@@ -196,13 +196,11 @@
                             <EditText
                                 android:id="@+id/edPhone"
                                 android:layout_width="0dp"
-                                android:layout_height="@dimen/dimen_45dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:lineHeight="2sp"
                                 android:inputType="phone"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/dimen_18dp"
-                                android:fontFamily="@font/poppins_medium"
                                 android:layout_marginStart="@dimen/dimen_5dp"/>
                         </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -213,7 +211,6 @@
                         android:textColorHint="@color/grey_100"
                         app:hintAnimationEnabled="true"
                         app:hintTextColor="@color/grey_100"
-
                         >
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edEmail"

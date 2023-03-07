@@ -3,13 +3,22 @@ package com.example.polyOder.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.polyOder.R;
 
 import com.example.polyOder.databinding.ActivitySignInBinding;
+import com.example.polyOder.databinding.DialogNoInternetBinding;
 import com.example.polyOder.ui.adapter.AdapterTabLayoutSignIn;
 import com.example.polyOder.ui.adapter.DepthPageTransformer;
 import com.google.android.material.tabs.TabLayout;
@@ -61,7 +70,7 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
-    public  void showLoading(){
+    public void showLoading(){
         binding.progressBar.setVisibility(View.VISIBLE);
         binding.layoutLogin.setAlpha(0.1f);
     }

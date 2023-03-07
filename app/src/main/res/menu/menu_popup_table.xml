@@ -2,11 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/tvAll"
-        android:icon="@drawable/ic_home"
         android:title="Tất cả bàn" />
     <item
         android:id="@+id/tvEmpty"
-        android:icon="@drawable/ic_cart"
         android:title="Bàn trống" />
     <item
         android:id="@+id/tvOpen"

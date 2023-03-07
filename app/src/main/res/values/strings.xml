@@ -32,6 +32,7 @@
     <string name="notifi_login_success">Đăng nhập thành công!</string>
     <string name="notifi_login_fail">Đăng nhập thất bại! Kiểm tra tên email,password hoặc đăng kí tài khoản!</string>
     <string name="notifi_login_fail_2">Hãy đăng kí tài khoản để sử dụng dịch vụ!</string>
+    <string name="notifi_login_fail_3">Bạn đã bị xóa bởi quản lí!</string>
     <string name="notifi_sign_up_success">Đăng ký thành công! Hãy đăng nhập!</string>
     <string name="notifi_sign_up_fail">Bạn đã nhập sai mật khẩu hoặc email!</string>
     <string name="notifi_forgot_pass_success">Đã gửi! Hãy kiểm tra email của bạn và đăng nhập lại!</string>
@@ -47,8 +48,9 @@
     <string name="text_menu_nav_cart">Tạo đơn</string>
     <string name="text_menu_nav_product">Sản phẩm</string>
     <string name="text_menu_nav_setting">Cài đặt</string>
-    <string name="content_setting_user">(<font color='red'>*</font>Hoàn thiện thông tin cá nhân của bạn )</string>
-    <string name="content_setting_turnover_1">Báo cáo doanh thu</string>
+    <string name="content_setting_user">(<font color='red'>*</font>Hoàn thiện thông tin cá nhân của bạn)</string>
+    <string name="content_setting_admin">(<font color='red'>*</font>Bạn có thể thay đổi thông tin cá nhân)</string>
+    <string name="content_setting_turnover_1">Báo cáo doanh thu ngày</string>
     <string name="content_setting_turnover_2">Thống kê đơn hàng</string>
     <string name="content_setting_turnover_3">Tổng quan tài chính</string>
     <string name="text_setting_chat">Trò chuyện với PolyOder</string>
@@ -60,9 +62,10 @@
     <string name="text_address_change_profile">Địa chỉ</string>
     <string name="text_birth_change_profile">Ngày sinh</string>
     <string name="text_sex_change_profile">Giới tính</string>
-    <string name="text_hint_search_product">Tìm tên sản phẩm</string>
+    <string name="text_hint_search_product">Tên, loại, giá tiền, mô tả...</string>
+    <string name="text_hint_search_product_top">Tên, mô tả, giá tiền...</string>
     <string name="text_hint_search_table">Tìm tên bàn</string>
-    <string name="text_hint_search_oder_save">Tìm tên đơn</string>
+    <string name="text_hint_search_oder_save">Tìm tên đơn theo bàn, thời gian, giá tiền...</string>
     <string name="text_hint_search_oder">Tên đơn, ngày tháng, giờ</string>
     <string name="text_hint_search_staff">Tên nhân viên</string>
     <string name="text_hint_search_type_product">Nhập tên loại</string>
@@ -82,7 +85,7 @@
     <string name="text_button_table_home_all">Tất cả bàn</string>
     <string name="text_button_table_home_empty">Bàn trống</string>
     <string name="text_button_table_home_open">Bàn đang mở</string>
-    <string name="notification_cancel_oder">Đơn hàng sẽ bị hủy và bạn có thể khôi phục nó trong lịch sử thống kê đơn hàng.</string>
+    <string name="notification_cancel_oder">Đơn hàng sẽ bị hủy và bạn có thể xem lại trong lịch sử thống kê đơn hàng.</string>
     <string name="content_add_img_product">(<font color='red'>*</font>Thêm ảnh minh họa)</string>
 
     <string name="content_financial_overview"><font color='red'>*</font> Các số liệu được lấy từ thống kê doanh thu đơn hàng và thống kê theo từng tháng</string>

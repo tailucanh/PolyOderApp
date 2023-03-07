@@ -21,7 +21,7 @@
                 android:id="@+id/icClose"
                 android:layout_width="@dimen/dimen_30dp"
                 android:layout_height="@dimen/dimen_30dp"
-                android:src="@drawable/ic_round_close"
+                android:src="@drawable/ic_arrow_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.031"
@@ -136,22 +136,23 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingVertical="@dimen/dimen_10dp">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimen_15dp"
+                        android:layout_marginTop="@dimen/dimen_5dp"
                         android:textColorHint="@color/grey_100"
                         app:hintAnimationEnabled="true"
-                        app:hintTextColor="@color/grey_100"
-                        android:layout_marginTop="@dimen/dimen_5dp"
-                        android:layout_marginHorizontal="@dimen/dimen_15dp"
-                        >
+                        app:hintTextColor="@color/grey_100">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edNameProduct"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/grey_150"
-                            android:hint="Tên sản phẩm"
                             android:fontFamily="@font/poppins_medium"
+                            android:hint="Tên sản phẩm"
                             android:inputType="text"
                             android:paddingStart="@dimen/dimen_10dp"
                             android:textColor="@color/black"
@@ -192,17 +193,16 @@
                                 android:id="@+id/tvContent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:fontFamily="@font/poppins_medium"
                                 android:text="Loại sản phẩm"
                                 android:textColor="@color/grey_200"
                                 android:textSize="@dimen/dimen_15dp"
                               />
-                                <Spinner
-                                    android:id="@+id/spinnerType"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    />
+                            <Spinner
+                                android:id="@+id/spinnerType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                />
 
                     </LinearLayout>
 

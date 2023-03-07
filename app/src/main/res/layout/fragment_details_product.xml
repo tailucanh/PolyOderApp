@@ -33,7 +33,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semi_bold"
+                android:textStyle="bold"
                 android:text="Chi tiết sản phẩm"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dimen_20dp"
@@ -227,24 +227,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ghi chú thêm"
+                    android:text="Ghi chú "
                     android:layout_gravity="center|top"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dimen_20dp"
-                    android:elevation="@dimen/dimen_7dp"
-                    android:fontFamily="@font/poppins_medium"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:elevation="@dimen/dimen_7dp"/>
+                <ImageView
+                    android:layout_width="@dimen/dimen_120dp"
+                    android:layout_height="@dimen/dimen_70dp"
+                    android:src="@drawable/ic_ribbon_2"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center|top"
+                    android:elevation="@dimen/dimen_6dp"/>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_80dp"
                     app:cardBackgroundColor="@color/white"
                     android:layout_marginHorizontal="@dimen/dimen_15dp"
-                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_22dp"
                     android:layout_marginBottom="@dimen/dimen_30dp"
                     app:cardCornerRadius="@dimen/dimen_20dp"
-                    app:cardElevation="@dimen/dimen_6dp">
+                    app:cardElevation="@dimen/dimen_5dp">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="83dp"
                         android:paddingHorizontal="@dimen/dimen_15dp">
 
                         <TextView
@@ -255,21 +265,23 @@
                             android:text="Ghi chú"
                             android:textColor="@color/black"
                             android:textSize="@dimen/dimen_17dp"
-
-                            app:layout_constraintVertical_bias="0.4"
                             app:layout_constraintBottom_toBottomOf="parent"
+
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.7" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="@color/grey_70"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
+
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintVertical_bias="0.85"/>
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvNoteProduct"
+                            app:layout_constraintVertical_bias="0.5" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -283,6 +295,7 @@
                 android:text="Xóa sản phẩm"
                 android:textColor="@color/red"
                 android:textAllCaps="false"
+                android:layout_marginVertical="@dimen/dimen_15dp"
                 android:textSize="@dimen/dimen_18dp"
                 android:fontFamily="@font/poppins_medium"
                 android:background="@drawable/custom_button_details_product"/>

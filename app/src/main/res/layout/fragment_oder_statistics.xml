@@ -65,10 +65,12 @@
                     app:layout_constraintVertical_bias="0.5" />
 
                 <ImageView
+                    android:id="@+id/ic_filter_function"
                     android:layout_width="@dimen/dimen_20dp"
                     android:layout_height="@dimen/dimen_20dp"
                     android:layout_gravity="bottom"
                     android:scaleType="centerInside"
+                    android:rotation="180"
                     android:src="@drawable/ic_arrow_down"
                     app:layout_constraintTop_toBottomOf="@id/tv1"
                     app:layout_constraintHorizontal_bias="0"

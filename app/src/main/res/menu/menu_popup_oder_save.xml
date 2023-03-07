@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/tvPaySuccess"
+        android:title="Thanh toán"
+        android:icon="@drawable/ic_round_money"
+        android:iconTint="#4BB950"
+        app:showAsAction="always"
+       />
+    <item
+        android:id="@+id/tvOderCancel"
+        android:title="Hủy đơn"
+        android:icon="@drawable/ic_round_cancel"
+        android:iconTint="#B44343"
+        app:showAsAction="always"/>
+
+
+</menu>

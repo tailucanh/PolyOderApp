@@ -296,7 +296,7 @@
                             android:textSize="@dimen/dimen_12dp"
                             android:layout_margin="@dimen/dimen_3dp"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/grey_200"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -331,7 +331,7 @@
                             android:textSize="@dimen/dimen_12dp"
                             android:layout_margin="@dimen/dimen_3dp"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/grey_200"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -363,7 +363,7 @@
                             android:textSize="@dimen/dimen_12dp"
                             android:layout_margin="@dimen/dimen_3dp"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/grey_200"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -372,7 +372,6 @@
                         android:gravity="center"
                         android:orientation="vertical">
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/btnChat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:cardElevation="@dimen/dimen_5dp"
@@ -380,6 +379,7 @@
                             android:layout_marginTop="@dimen/dimen_8dp"
                             >
                             <ImageButton
+                                android:id="@+id/btnChat"
                                 android:layout_width="@dimen/dimen_47dp"
                                 android:layout_height="@dimen/dimen_47dp"
                                 android:background="@color/blue_50"
@@ -394,36 +394,9 @@
                             android:textSize="@dimen/dimen_12dp"
                             android:layout_margin="@dimen/dimen_3dp"
                             android:fontFamily="@font/poppins_semi_bold"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/grey_200"/>
                     </LinearLayout>
                 </LinearLayout>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layoutSlide"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_150dp"
-                    android:visibility="visible"
-                    android:layout_marginTop="@dimen/dimen_8dp">
-                    <fragment
-                        android:id="@+id/fragment_slide"
-                        android:name="com.example.polyOder.home.fragments.FragmentSlideImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                    <ImageView
-                        android:id="@+id/icCloseSlide"
-                        android:layout_width="@dimen/dimen_30dp"
-                        android:layout_height="@dimen/dimen_30dp"
-                        android:src="@drawable/ic_round_close"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.97"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.04" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -442,39 +415,41 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_collapseMode="pin">
+                app:layout_collapseMode="pin"
+                android:paddingHorizontal="@dimen/dimen_8dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     >
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/btnAllTable"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/dimen_10dp"
-
-                        app:cardElevation="@dimen/dimen_5dp"
-                        android:layout_marginStart="@dimen/dimen_10dp"
-                        android:layout_marginVertical="@dimen/dimen_8dp">
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginVertical="@dimen/dimen_10dp">
                         <TextView
                             android:id="@+id/tvTitleAll"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/dimen_27dp"
                             android:text="@string/text_button_table_home_all"
                             android:fontFamily="@font/poppins_medium"
-                            android:textColor="@color/black"
-                            android:background="@color/grey_55"
-                            android:textSize="@dimen/dimen_16dp"
-                            android:paddingVertical="@dimen/dimen_5dp"
-                            android:paddingHorizontal="@dimen/dimen_15dp"/>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
+                            android:textColor="@color/brown_300"
+                            android:textSize="@dimen/dimen_18dp"
+                            android:paddingHorizontal="@dimen/dimen_8dp"/>
+                        <ImageView
+                            android:id="@+id/icDot1"
+                            android:layout_width="@dimen/dimen_10dp"
+                            android:layout_height="@dimen/dimen_10dp"
+                            android:src="@drawable/ic_cricle"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:id="@+id/btnTableEmpty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/dimen_10dp"
-                        app:cardElevation="@dimen/dimen_5dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_marginStart="@dimen/dimen_15dp"
                         android:layout_marginVertical="@dimen/dimen_8dp">
                         <TextView
@@ -483,19 +458,23 @@
                             android:layout_height="wrap_content"
                             android:text="@string/text_button_table_home_empty"
                             android:fontFamily="@font/poppins_medium"
-                            android:textColor="@color/black"
-                            android:background="@color/grey_55"
+                            android:textColor="@color/grey_300"
                             android:textSize="@dimen/dimen_16dp"
-                            android:paddingVertical="@dimen/dimen_5dp"
-                            android:paddingHorizontal="@dimen/dimen_15dp"/>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
+                            android:paddingHorizontal="@dimen/dimen_12dp"/>
+                        <ImageView
+                            android:id="@+id/icDot2"
+                            android:layout_width="@dimen/dimen_10dp"
+                            android:layout_height="@dimen/dimen_10dp"
+                            android:src="@drawable/ic_cricle"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:id="@+id/btnTableOpen"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="@dimen/dimen_10dp"
-                        app:cardElevation="@dimen/dimen_5dp"
-                        android:layout_marginStart="@dimen/dimen_15dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/dimen_10dp"
                         android:layout_marginEnd="@dimen/dimen_20dp"
                         android:layout_marginVertical="@dimen/dimen_8dp">
                         <TextView
@@ -504,22 +483,59 @@
                             android:layout_height="wrap_content"
                             android:text="@string/text_button_table_home_open"
                             android:fontFamily="@font/poppins_medium"
-                            android:textColor="@color/black"
-                            android:background="@color/grey_55"
+                            android:textColor="@color/grey_300"
                             android:textSize="@dimen/dimen_16dp"
-                            android:paddingVertical="@dimen/dimen_5dp"
                             android:paddingHorizontal="@dimen/dimen_15dp"/>
-                    </androidx.cardview.widget.CardView>
+                        <ImageView
+                            android:id="@+id/icDot3"
+                            android:layout_width="@dimen/dimen_10dp"
+                            android:layout_height="@dimen/dimen_10dp"
+                            android:src="@drawable/ic_cricle"
+                            android:visibility="gone"/>
+                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/revListTable"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
-                android:paddingHorizontal="@dimen/dimen_5dp"/>
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/layoutNotificationNullData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:visibility="gone"
+                  >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_70dp"
+                        android:layout_height="@dimen/dimen_70dp"
+                        android:src="@drawable/ic_monitor"/>
+                    <TextView
+                        android:id="@+id/tvNotifiNull"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chưa có dữ liệu"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/dimen_25dp"
+                        android:textColor="@color/grey_100"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/dimen_16dp"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/revListTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    android:paddingHorizontal="@dimen/dimen_5dp"
+                    android:paddingTop="@dimen/dimen_10dp"/>
+            </FrameLayout>
+
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

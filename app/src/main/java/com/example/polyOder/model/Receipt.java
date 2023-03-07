@@ -12,7 +12,6 @@ public class Receipt {
     private String noteOder;
     private boolean statusOder;
 
-
     public Receipt() {
     }
 
@@ -93,4 +92,4 @@ public class Receipt {
     public void setStatusOder(boolean statusOder) {
         this.statusOder = statusOder;
     }
-}
+ }

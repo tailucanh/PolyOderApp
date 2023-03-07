@@ -66,7 +66,7 @@
                     android:textAllCaps="false"
                     android:paddingHorizontal="@dimen/dimen_40dp"
                     android:background="@drawable/custom_button_login"
-                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textStyle="bold"
                     android:textSize="@dimen/dimen_20dp"
                     android:textColor="@color/black"
                     />

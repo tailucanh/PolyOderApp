@@ -25,23 +25,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="@dimen/dimen_10dp">
-                <ImageView
-                    android:id="@+id/icBack"
-                    android:layout_width="@dimen/dimen_30dp"
-                    android:layout_height="@dimen/dimen_30dp"
-                    android:src="@drawable/ic_arrow_back"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.031"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/grey_350" />
+
 
                 <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Đơn đang có"
+                    android:text="Đơn đang có tại bàn"
                     android:textColor="@color/black"
                     android:textSize="@dimen/dimen_19dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -68,10 +59,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hủy"
-                    android:visibility="gone"
                     android:textColor="@color/grey_150"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="@font/poppins_medium"
                     android:textSize="@dimen/dimen_18dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.95"
@@ -82,9 +73,10 @@
 
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/search_view_oder_save"
-                    android:layout_width="@dimen/dimen_200dp"
-                    android:layout_height="@dimen/dimen_35dp"
-                    android:layout_marginHorizontal="@dimen/dimen_25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_marginEnd="@dimen/dimen_55dp"
+                    android:layout_marginStart="@dimen/dimen_25dp"
                     android:background="@drawable/custom_search_view_2"
                     app:iconifiedByDefault="false"
                     android:visibility="gone"
@@ -100,7 +92,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
         <LinearLayout
-            android:id="@+id/layoutType"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -109,6 +101,7 @@
             android:layout_marginVertical="@dimen/dimen_10dp"
             >
             <TextView
+                android:id="@+id/tvCountSaveOder"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_23dp"
                 android:text="Số lượng đơn"
@@ -116,24 +109,55 @@
                 android:fontFamily="@font/poppins_regular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dimen_17dp"/>
+
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/layoutNotificationNullData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/dimen_45dp"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:src="@drawable/ic_monitor"/>
             <TextView
-                android:id="@+id/tvDate"
+                android:id="@+id/tvNotifiNull"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dimen_23dp"
-                android:text=""
-                android:layout_marginStart="@dimen/dimen_4dp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Chưa có đơn hàng"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/dimen_25dp"
+                android:textColor="@color/grey_100"
+                android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/dimen_16dp"/>
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recVListOderSAve"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:paddingHorizontal="@dimen/dimen_5dp" />
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swiperRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recVListOderSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_5dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </FrameLayout>
+
+
     </LinearLayout>
 
 
