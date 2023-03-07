@@ -13,15 +13,20 @@ import androidx.core.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.polyOder.MainActivity;
 import com.example.polyOder.R;
 import com.example.polyOder.base.BaseFragment;
+import com.example.polyOder.chatPoly.messageChat.ChatsFragment;
 import com.example.polyOder.databinding.FragmentSettingBinding;
 import com.example.polyOder.model.User;
+import com.example.polyOder.setting.sales.DailySalesReportFragment;
+import com.example.polyOder.setting.sales.FinanceOverviewFragment;
+import com.example.polyOder.setting.sales.StatisticalFragment;
+import com.example.polyOder.setting.sales.TopProductFragment;
+import com.example.polyOder.setting.users.UserManagementFragment;
+import com.example.polyOder.setting.users.UpdateUserFragment;
 import com.example.polyOder.ui.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,15 +35,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 public class SettingFragment extends BaseFragment {
     private FragmentSettingBinding binding = null;
     private User user;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
-    MainActivity mainActivity;
+
 
 
     public SettingFragment() {
@@ -70,27 +71,12 @@ public class SettingFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Window window = getActivity().getWindow();
-        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        window.setStatusBarColor(getActivity().getColor(R.color.brown_120));
 
+        setColorStatusBar(getActivity().getColor(R.color.brown_120));
         user = new User();
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        StorageReference reference = FirebaseStorage.getInstance().getReference().child("avatars");
-        reference.listAll().addOnSuccessListener(listResult -> {
-            for (StorageReference files : listResult.getItems()
-            ) {
-                if (files.getName().equals(firebaseUser.getUid())) {
-                    files.getDownloadUrl().addOnSuccessListener(uri -> {
-                        if(getActivity() != null){
-                            Glide.with(getActivity()).load(uri).into(binding.imgAvatar);
-                        }
-                    });
-                }
-            }
-        });
-        mainActivity.showBottomBar();
+
+        getImageObjFromStorageReference("avatars", FirebaseAuth.getInstance().getCurrentUser().getUid(),binding.imgAvatar);
+        showBottomBar();
         listening();
         initObSever();
     }
@@ -98,23 +84,19 @@ public class SettingFragment extends BaseFragment {
 
     @Override
     public void loadData() {
-        String userID = firebaseUser.getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+        getDataFirebaseUser("users",new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user = snapshot.getValue(User.class);
-                if (firebaseUser != null && !user.isUserAuthorization()) {
-                    binding.tvName.setText(user.getName_user());
-                    binding.icEditUser.setVisibility(View.VISIBLE);
-                    binding.tvContent.setVisibility(View.VISIBLE);
+                binding.tvName.setText(user.getName_user());
+                if (FirebaseAuth.getInstance().getCurrentUser().getUid() != null && !user.isUserAuthorization()) {
+                    binding.tvContent.setText(R.string.content_setting_user);
                     binding.layoutEmployeeManagement.setVisibility(View.GONE);
                     binding.layoutFinancialOverview.setVisibility(View.GONE);
                     binding.icLine3.setVisibility(View.GONE);
                 }else {
-                    binding.tvName.setText(user.getName_user());
-                    binding.icEditUser.setVisibility(View.GONE);
-                    binding.tvContent.setVisibility(View.GONE);
+                    binding.tvContent.setText(R.string.content_setting_admin);
                     binding.layoutEmployeeManagement.setVisibility(View.VISIBLE);
                     binding.layoutFinancialOverview.setVisibility(View.VISIBLE);
                     binding.icLine3.setVisibility(View.VISIBLE);
@@ -152,21 +134,18 @@ public class SettingFragment extends BaseFragment {
         });
 
         binding.layoutEmployeeManagement.setOnClickListener(v ->{
-            replaceFragment(EmployeeManagementFragment.newInstance());
+            replaceFragment(UserManagementFragment.newInstance());
+        });
+        binding.layoutTopProduct.setOnClickListener(v ->{
+            replaceFragment(TopProductFragment.newInstance());
+        });
+        binding.layoutChat.setOnClickListener(v ->{
+            replaceFragment(ChatsFragment.newInstance());
         });
 
-        binding.scrollViewSetting.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(@NonNull NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY) {
-                    mainActivity.visibilityOfBottom(false);
-                }
-                if (scrollY < oldScrollY) {
-                    mainActivity.visibilityOfBottom(true);
-                }
 
-            }
-        });
+        visibleBottomBarOnScroll(null, binding.scrollViewSetting);
+
 
     }
 
@@ -179,19 +158,9 @@ public class SettingFragment extends BaseFragment {
 
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        mainActivity = (MainActivity)context;
-    }
 
     private void signOut(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Đăng xuất tài khoản ");
-        builder.setIcon(context.getDrawable(R.drawable.ic_logout));
-        builder.setMessage("Bạn chắc chắn muốn đăng xuất!");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+        getConfirmResponse(context,"Đăng xuất tài khoản" ,R.drawable.ic_logout,"Bạn chắc chắn muốn đăng xuất!" ,"Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FirebaseAuth.getInstance().signOut();
@@ -199,16 +168,12 @@ public class SettingFragment extends BaseFragment {
                 Toast.makeText(context, "Đã đăng xuất! ", Toast.LENGTH_SHORT).show();
                 dialog.cancel();
             }
-        });
-        builder.setNegativeButton("Thoát", new DialogInterface.OnClickListener() {
+        },"hủy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(context, "Đã hủy !", Toast.LENGTH_SHORT).show();
                 dialog.cancel();
             }
         });
-
-        AlertDialog sh = builder.create();
-        sh.show();
     }
 }

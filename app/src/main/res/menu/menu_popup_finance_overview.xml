@@ -9,6 +9,8 @@
     <item
         android:id="@+id/tvTwoYearAgo"
         android:title="Hai năm trước" />
-
+    <item
+        android:id="@+id/tvThreeYearAgo"
+        android:title="Ba năm trước" />
 
 </menu>

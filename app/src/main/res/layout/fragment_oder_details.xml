@@ -248,7 +248,7 @@
                     android:paddingVertical="@dimen/dimen_10dp">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/img_status_oder"
                         android:layout_width="@dimen/dimen_30dp"
                         android:layout_height="@dimen/dimen_30dp"
                         android:src="@drawable/ic_round_check_circle_outline"
@@ -258,7 +258,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0"
-                        app:tint="@color/blue" />
+                       />
 
                     <TextView
                         android:id="@+id/tvPaySuccess"
@@ -272,7 +272,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.05"
-                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintStart_toEndOf="@+id/img_status_oder"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0" />
 

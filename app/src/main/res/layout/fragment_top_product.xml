@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/custom_layout_top_product"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/text_header_home_1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:paddingStart="@dimen/dimen_15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.035" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_9dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/brown_270"
+                    android:text="ABS"
+                    android:textSize="@dimen/dimen_18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.02"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kanit_regular"
+                    android:text="Top các sản phẩm \nbán chạy nhất "
+                    android:textColor="@color/grey_200"
+                    android:textSize="@dimen/dimen_25dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:paddingStart="@dimen/dimen_20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/icUserSetting"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="0" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/icUserSetting"
+                    android:layout_width="@dimen/dimen_45dp"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:background="@drawable/custom_circle_view"
+                    android:padding="@dimen/dimen_2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_avatar"
+                    app:civ_border_color="@color/grey_60"
+                    app:civ_border_width="@dimen/dimen_1dp"
+                    android:elevation="@dimen/dimen_5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.957"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view_top_product"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginHorizontal="@dimen/dimen_25dp"
+                android:background="@drawable/custom_search_view_3"
+                app:iconifiedByDefault="false"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_18dp"
+                app:queryBackground="@null"
+                app:queryHint="@string/text_hint_search_product_top"
+                app:submitBackground="@null" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/notifiNullDataTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="@dimen/dimen_55dp"
+                    android:visibility="gone"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_55dp"
+                        android:layout_height="@dimen/dimen_55dp"
+                        android:src="@drawable/ic_monitor"/>
+                    <TextView
+                        android:id="@+id/tvNullTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chưa có dữ liệu"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/dimen_25dp"
+                        android:textColor="@color/grey_100"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/dimen_15dp"/>
+                </LinearLayout>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:fillViewport="true"
+                    android:measureAllChildren="false"
+                    android:scrollbars="none"
+                    android:layout_marginTop="@dimen/dimen_10dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rel_list_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="10"
+                        android:paddingEnd="20dp"
+                        />
+                </HorizontalScrollView>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/notifiNullDataTopMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="@dimen/dimen_65dp"
+                    android:visibility="gone"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/dimen_70dp"
+                        android:layout_height="@dimen/dimen_70dp"
+                        android:src="@drawable/ic_monitor"/>
+                    <TextView
+                        android:id="@+id/tvNullTopMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chưa có dữ liệu"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/dimen_25dp"
+                        android:textColor="@color/grey_100"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/dimen_16dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        >
+                        <TextView
+                            android:id="@+id/tvContentTopMonth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/kanit_regular"
+                            android:paddingStart="@dimen/dimen_10dp"
+                            android:text="Top tháng..."
+                            android:textColor="@color/brown_250"
+                            android:textSize="@dimen/dimen_19dp"
+                            android:gravity="left"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.SearchView
+                                android:id="@+id/search_view_top_month"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="@dimen/dimen_32dp"
+                                android:background="@drawable/custom_search_view_4"
+                                android:layout_marginEnd="@dimen/dimen_5dp"
+                                app:iconifiedByDefault="false"
+                                android:layout_marginStart="@dimen/dimen_10dp"
+                                app:queryBackground="@null"
+                                android:visibility="gone"
+                                app:queryHint="@string/text_hint_search_product_top"
+                                app:submitBackground="@null" />
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dimen_15dp"
+                                >
+                                <ImageView
+                                    android:id="@+id/ic_show_search"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/ic_round_search"
+                                    app:tint="@color/grey_100"
+                                 />
+                                <ImageView
+                                    android:id="@+id/ic_hide_search"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone"
+                                    android:src="@drawable/ic_hide_search_view"
+                                   />
+                            </FrameLayout>
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rel_list_top_month"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+
+                        />
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -11,9 +11,8 @@
         android:orientation="vertical"
         android:id="@+id/dialog_chooser_function"
         android:elevation="10dp"
-        android:background="@drawable/custom_border_view_function_img_product"
+        android:background="@drawable/custom_border_view_function"
         android:layout_gravity="bottom"
-        android:paddingBottom="@dimen/dimen_15dp"
         android:paddingTop="@dimen/dimen_10dp">
 
         <TextView
@@ -29,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/grey_70"
-
             />
         <TextView
             android:id="@+id/tvShowInfo"

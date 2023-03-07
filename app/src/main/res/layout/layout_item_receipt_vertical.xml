@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Tên đơn"
             android:textColor="@color/black"
-            android:textSize="@dimen/dimen_18dp"
+            android:textSize="@dimen/dimen_16dp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
@@ -41,7 +41,7 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Tổng tiền"
             android:textColor="@color/black"
-            android:textSize="@dimen/dimen_19dp"
+            android:textSize="@dimen/dimen_17dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 app:contentPaddingLeft="@dimen/dimen_10dp"
                 app:contentPaddingRight="@dimen/dimen_10dp"
+                app:contentPaddingTop="@dimen/dimen_3dp"
                 app:cardBackgroundColor="@color/brown_90"
                 app:cardCornerRadius="@dimen/dimen_10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="Trạng thái"
                     android:textColor="@color/brown_500"
-                    android:textSize="@dimen/dimen_14dp"/>
+                    android:textSize="@dimen/dimen_12dp"/>
             </androidx.cardview.widget.CardView>
 
 
@@ -78,7 +79,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="Thời gian"
                 android:textColor="@color/grey_200"
-                android:textSize="@dimen/dimen_13dp"
+                android:textSize="@dimen/dimen_12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.93"
                 app:layout_constraintStart_toStartOf="parent"
@@ -96,8 +97,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalMoney">
                 <ImageView
-                    android:layout_width="@dimen/dimen_25dp"
-                    android:layout_height="@dimen/dimen_25dp"
+                    android:layout_width="@dimen/dimen_23dp"
+                    android:layout_height="@dimen/dimen_23dp"
                     android:src="@drawable/ic_oder_2" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,7 +108,7 @@
                     android:textColor="@color/grey_350"
                     android:layout_marginTop="@dimen/dimen_3dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/dimen_16dp"/>
+                    android:textSize="@dimen/dimen_14dp"/>
                 <TextView
                     android:id="@+id/tvNoteBill"
                     android:layout_width="0dp"
@@ -119,7 +120,7 @@
                     android:layout_marginEnd="@dimen/dimen_8dp"
                     android:layout_marginTop="@dimen/dimen_3dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/dimen_16dp"/>
+                    android:textSize="@dimen/dimen_14dp"/>
 
             </LinearLayout>
             <View
@@ -154,7 +155,7 @@
                     android:text="In đơn hàng"
                     android:textColor="@color/grey_200"
                     android:fontFamily="@font/poppins_medium"
-                    android:textSize="@dimen/dimen_18dp"/>
+                    android:textSize="@dimen/dimen_16dp"/>
 
 
             </LinearLayout>

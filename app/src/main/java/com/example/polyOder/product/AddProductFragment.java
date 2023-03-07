@@ -28,12 +28,12 @@ import com.bumptech.glide.Glide;
 import com.example.polyOder.MainActivity;
 import com.example.polyOder.R;
 import com.example.polyOder.base.BaseFragment;
-import com.example.polyOder.databinding.DialogEvaluateBinding;
+import com.example.polyOder.base.Helpers;
 import com.example.polyOder.databinding.FragmentAddProductBinding;
-import com.example.polyOder.databinding.FragmentTypeProductBinding;
 import com.example.polyOder.model.Product;
+import com.example.polyOder.model.Table;
 import com.example.polyOder.model.TypeProduct;
-import com.example.polyOder.product.Adapter.SpinnerTypeProductAdapter;
+import com.example.polyOder.product.adapter.SpinnerTypeProductAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,7 +50,7 @@ public class AddProductFragment extends BaseFragment {
     private ArrayList<TypeProduct> listTypeProduct;
     private static final int PICL_IMAGES_CODE = 1001;
     private Uri imgProduct;
-    MainActivity mainActivity;
+    private Helpers helpers = new Helpers();
 
 
     public AddProductFragment() {
@@ -82,28 +82,17 @@ public class AddProductFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        listTypeProduct = new ArrayList<>();
 
-        loadData();
+
         listening();
-        binding.icSaveProduct.setOnClickListener(v -> {
-            if(checkInputData()){
-                saveProduct(getContext());
-            }
-
-        });
-        binding.btnSaveProduct.setOnClickListener(v -> {
-            if(checkInputData()){
-                saveProduct(getContext());
-            }
-        });
-        mainActivity.hideBottomBar();
+        hideBottomBar();
     }
 
     @Override
     public void loadData() {
-        listTypeProduct = new ArrayList<>();
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("list_type_product");
-        mRef.addValueEventListener(new ValueEventListener() {
+
+       getDataFromFirebase("list_type_product", new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listTypeProduct.clear();
@@ -128,19 +117,24 @@ public class AddProductFragment extends BaseFragment {
           backStack();
         });
 
-
-
         binding.icAddImg.setOnClickListener(v -> {
             requestPermission();
+        });
+        binding.icSaveProduct.setOnClickListener(v -> {
+            if(checkInputData()){
+                saveProduct(getContext());
+            }
+
+        });
+        binding.btnSaveProduct.setOnClickListener(v -> {
+            if(checkInputData()){
+                saveProduct(getContext());
+            }
         });
 
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        mainActivity = (MainActivity)context;
-    }
+
 
     @Override
     public void initObSever() {
@@ -159,56 +153,51 @@ public class AddProductFragment extends BaseFragment {
             TypeProduct typeProduct = (TypeProduct) binding.spinnerType.getSelectedItem();
             Product product = new Product(key,binding.edNameProduct.getText().toString().trim(),binding.edDescribe.getText().toString().trim(),typeProduct,
                     Double.parseDouble(binding.edPrice.getText().toString().trim()), binding.edNote.getText().toString().trim(),true);
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Thêm sản phẩm");
-            builder.setMessage("Bạn chắc chắn muốn thêm " + binding.edNameProduct.getText().toString().trim() + " vào menu");
-            builder.setIcon(context.getDrawable(R.drawable.ic_save));
-            builder.setCancelable(false);
-            builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+            getConfirmResponse(context, "Thêm sản phẩm", R.drawable.ic_save, "Xác nhận thêm " + binding.edNameProduct.getText().toString().trim() + " vào menu", "Đồng ý", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(DialogInterface dialogInterface, int i) {
                     reference.child(key).setValue(product).addOnCompleteListener(task -> {
                         if (task.isSuccessful()){
-                            notificationSuccessInput(getContext(),"Thêm thành công!");
+                            helpers.notificationSuccessInput(getContext(),"Thêm thành công!");
                             backStack();
+                            dialogInterface.cancel();
                         }else {
-                            notificationErrInput(getContext(),"Thêm thất bại");
+                            helpers.notificationErrInput(getContext(),"Thêm thất bại");
+                            dialogInterface.cancel();
                         }
                     });
-                if(imgProduct != null){
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference("imgProducts/"+product.getId());
-                    storageReference.putFile(imgProduct).addOnSuccessListener(taskSnapshot -> {
-                    }).addOnFailureListener(command -> {
-                        Toast.makeText(getContext(), "Cập nhật ảnh thất bại", Toast.LENGTH_SHORT).show();
-                    });
+                    if(imgProduct != null){
+                        StorageReference storageReference = FirebaseStorage.getInstance().getReference("imgProducts/"+product.getId());
+                        storageReference.putFile(imgProduct).addOnSuccessListener(taskSnapshot -> {
+                        }).addOnFailureListener(command -> {
+                            Toast.makeText(getContext(), "Cập nhật ảnh thất bại", Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                    cleanEditText();
                 }
-                cleanEditText();
-            }
-        });
-        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context,"Đã hủy !",Toast.LENGTH_SHORT).show();
-                dialog.cancel();
+            }, "Hủy", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast.makeText(getContext(),"Đã hủy !",Toast.LENGTH_SHORT).show();
+                    dialogInterface.cancel();
+
             }
         });
 
-            AlertDialog sh = builder.create();
-            sh.show();
 
     }
 
 
     private boolean checkInputData(){
-        if(TextUtils.isEmpty(binding.edNameProduct.getText().toString())){
-            notificationErrInput(getContext(),"Hãy nhập tên sản phẩm!");
+        if(helpers.isEmptyString(binding.edNameProduct.getText().toString())){
+            helpers.notificationErrInput(getContext(),"Hãy nhập tên sản phẩm!");
             return false;
         }else if(binding.spinnerType.getSelectedItem() == null) {
-            notificationErrInput(getContext(),"Hãy thêm loại sản phẩm!");
+            helpers.notificationErrInput(getContext(),"Hãy thêm loại sản phẩm!");
             replaceFragment(new TypeProductFragment().newInstance());
             return false;
-        } else if(TextUtils.isEmpty(binding.edPrice.getText().toString())){
-            notificationErrInput(getContext(),"Hãy nhập giá sản phẩm!");
+        } else if(helpers.isEmptyString(binding.edPrice.getText().toString())){
+            helpers.notificationErrInput(getContext(),"Hãy nhập giá sản phẩm!");
             return false;
         }else{
             return true;

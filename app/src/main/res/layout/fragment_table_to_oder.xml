@@ -61,10 +61,9 @@
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/search_view_table"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_45dp"
+                    android:layout_height="@dimen/dimen_40dp"
                     android:layout_marginHorizontal="@dimen/dimen_25dp"
                     android:background="@drawable/custom_search_view"
-                    android:elevation="@dimen/dimen_5dp"
                     app:iconifiedByDefault="false"
                     android:layout_marginBottom="@dimen/dimen_8dp"
                     android:layout_marginTop="@dimen/dimen_15dp"
@@ -93,11 +92,13 @@
                             android:textColor="@color/brown_300"
                             android:textSize="@dimen/dimen_16dp" />
                         <ImageView
+                            android:id="@+id/icArrow"
                             android:layout_width="@dimen/dimen_25dp"
                             android:layout_height="@dimen/dimen_25dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/ic_arrow_down"
                             android:layout_gravity="bottom"
+                            android:rotation="180"
                             android:layout_marginBottom="@dimen/dimen_3dp"
                             app:tint="@color/brown_300" />
                     </LinearLayout>
@@ -151,20 +152,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fillViewport="true">
-                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                    android:id="@+id/swiperRefreshLayout"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recViewTables"
+                    <LinearLayout
+                        android:id="@+id/notifiNullData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="@dimen/dimen_65dp"
+                        android:visibility="gone"
+                        >
+                        <ImageView
+                            android:layout_width="@dimen/dimen_70dp"
+                            android:layout_height="@dimen/dimen_70dp"
+                            android:src="@drawable/ic_monitor"/>
+                        <TextView
+                            android:id="@+id/tvContentNull"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chưa có dữ liệu bàn"
+                            android:gravity="center"
+                            android:layout_marginHorizontal="@dimen/dimen_25dp"
+                            android:textColor="@color/grey_100"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/dimen_16dp"/>
+                    </LinearLayout>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:id="@+id/swiperRefreshLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="2"
-                        android:paddingHorizontal="@dimen/dimen_5dp"
-                        />
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                        android:layout_height="match_parent">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recViewTables"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="2"
+                            android:paddingHorizontal="@dimen/dimen_5dp"
+                            android:paddingTop="@dimen/dimen_8dp"
+                            />
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </FrameLayout>
+
             </androidx.core.widget.NestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>

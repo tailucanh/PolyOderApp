@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dimen_8dp">
+    <LinearLayout
+        android:id="@+id/layout_chat_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|left"
+        android:layout_marginEnd="@dimen/dimen_80dp"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dimen_100dp"
+
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:src="@drawable/ic_robot"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="@dimen/dimen_12dp"
+            android:layout_height="@dimen/dimen_12dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/corner2_item_chat"
+            android:backgroundTint="#75B7EB"
+            />
+        <TextView
+            android:id="@+id/tv_chat_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello chat poly!"
+            android:paddingVertical="@dimen/dimen_8dp"
+            android:paddingHorizontal="@dimen/dimen_10dp"
+            android:textSize="@dimen/dimen_16dp"
+            android:background="@drawable/custom_rounded_item_chat"
+            android:backgroundTint="#75B7EB"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_chat_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_rounded_item_chat_2"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="#cccccc"
+        android:paddingVertical="@dimen/dimen_8dp"
+        android:paddingHorizontal="@dimen/dimen_10dp"
+        android:layout_marginStart="@dimen/dimen_80dp">
+        <TextView
+            android:id="@+id/tv_chat_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello chat poly!"
+            android:textSize="@dimen/dimen_16dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+    </LinearLayout>
+
+</RelativeLayout>

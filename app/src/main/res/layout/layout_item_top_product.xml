@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layout_item"
+            android:layout_width="@dimen/dimen_190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_70dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            app:cardElevation="@dimen/dimen_3dp"
+            app:cardCornerRadius="@dimen/dimen_15dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_item_top_product">
+
+                <ImageView
+                    android:id="@+id/ic_top"
+                    android:layout_width="@dimen/dimen_35dp"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:src="@drawable/ic_top_rate"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dimen_18dp"
+                    android:layout_height="@dimen/dimen_18dp"
+                    app:cardCornerRadius="@dimen/dimen_100dp"
+                    android:layout_marginTop="@dimen/dimen_14dp"
+                    app:contentPadding="@dimen/dimen_1dp"
+                    android:layout_marginEnd="@dimen/dimen_18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/tv_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/dimen_12dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/tvNameTop"
+                    android:layout_width="@dimen/dimen_180dp"
+                    android:layout_height="@dimen/dimen_28dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/dimen_13dp"
+                    android:text="Cappuccino"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_17dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/ic_top"
+                     />
+
+                <TextView
+                    android:id="@+id/tvDescTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_regular"
+                    android:maxEms="10"
+                    android:maxLength="35"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/dimen_13dp"
+                    android:text="kết hợp chocolate"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameTop" />
+
+                <TextView
+                    android:id="@+id/tvPriceTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="45.000đ"
+                    android:textColor="@color/brown_300"
+                    android:textSize="@dimen/dimen_19dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.315"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDescTop" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPriceTop">
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.45"
+                        android:paddingVertical="2dp"
+                        android:gravity="center"
+                        android:text="aaaa"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="@dimen/dimen_16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.55"
+                        android:paddingVertical="3dp"
+                        android:background="@drawable/custom_text_view_top_product"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Chi tiết"
+                        android:textColor="@color/grey_100"
+                        android:textSize="@dimen/dimen_14dp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cavProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_25dp"
+        android:layout_gravity="center|top"
+        app:cardElevation="@dimen/dimen_5dp"
+        app:contentPadding="@dimen/dimen_5dp"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        android:layout_alignStart="@+id/layout_item"
+        android:layout_alignParentTop="true"
+        >
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="@dimen/dimen_110dp"
+            android:layout_height="@dimen/dimen_110dp"
+            android:src="@drawable/ic_product"
+            android:layout_gravity="center|top"
+
+            />
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

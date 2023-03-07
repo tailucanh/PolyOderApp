@@ -52,7 +52,7 @@
         android:layout_marginVertical="@dimen/dimen_10dp"
         >
         <TextView
-            android:id="@+id/tvNameTypeProduct"
+            android:id="@+id/tvCountProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_type_product_1"
@@ -68,19 +68,48 @@
         android:layout_weight="1"
         android:background="@color/white"
         android:orientation="vertical">
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swiperRefreshLayout"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listProductToOder"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            <LinearLayout
+                android:id="@+id/layoutNotifiNullData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="@dimen/dimen_5dp"/>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                android:gravity="center"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="@dimen/dimen_65dp"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:layout_width="@dimen/dimen_70dp"
+                    android:layout_height="@dimen/dimen_70dp"
+                    android:src="@drawable/ic_monitor"/>
+                <TextView
+                    android:id="@+id/tvContentNull"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa có dữ liệu"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimen_25dp"
+                    android:textColor="@color/grey_100"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/dimen_16dp"/>
+            </LinearLayout>
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swiperRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listProductToOder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/dimen_5dp"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </FrameLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

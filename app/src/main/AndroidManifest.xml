@@ -5,9 +5,17 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
 
     <application
-        android:name=".PushNotification.MyApplicaton"
+        android:name=".pushNotification.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -48,6 +56,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".chatPoly.AIChat.ChatPolyAIActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DuAn1_mananger">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.HelloScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -61,14 +77,23 @@
                 android:value="" />
         </activity>
         <service
-            android:name=".PushNotification.MyNotificator"
+            android:name=".pushNotification.MyNotificator"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
 
         </service>
-
+        <receiver
+            android:name="com.example.polyOder.pushNotification.NetworkStateReceiver"
+            android:label="NetworkChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

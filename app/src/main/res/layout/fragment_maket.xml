@@ -4,14 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".maket.MarketFragment"
+    tools:context=".carts.MarketFragment"
     android:orientation="vertical"
     android:background="@color/grey_20">
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_control"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -22,7 +17,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semi_bold"
+            android:textStyle="bold"
             android:text="Tạo đơn hàng"
             android:layout_marginVertical="@dimen/dimen_10dp"
             android:textColor="@color/black"
@@ -75,9 +70,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_50dp"
-            android:background="@drawable/custom_border_view_function_img_product"
+            android:background="@drawable/custom_border_view_market"
             android:orientation="vertical"
             android:paddingVertical="@dimen/dimen_20dp"
+            android:elevation="@dimen/dimen_5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -65,10 +65,9 @@
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/search_view_product"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_45dp"
+                    android:layout_height="@dimen/dimen_40dp"
                     android:layout_marginHorizontal="@dimen/dimen_25dp"
                     android:background="@drawable/custom_search_view"
-                    android:elevation="@dimen/dimen_4dp"
                     app:iconifiedByDefault="false"
                     android:layout_marginBottom="@dimen/dimen_8dp"
                     android:layout_marginTop="@dimen/dimen_15dp"
@@ -138,21 +137,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
-                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                    android:id="@+id/swiperRefreshLayout"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/listProduct"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:paddingHorizontal="@dimen/dimen_5dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    <LinearLayout
+                        android:id="@+id/layoutNotifiNullData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        />
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+                        android:gravity="center"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="@dimen/dimen_65dp"
+                        android:visibility="gone"
+                        >
+                        <ImageView
+                            android:layout_width="@dimen/dimen_70dp"
+                            android:layout_height="@dimen/dimen_70dp"
+                            android:src="@drawable/ic_monitor"/>
+                        <TextView
+                            android:id="@+id/tvContentNull"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chưa có dữ liệu"
+                            android:gravity="center"
+                            android:layout_marginHorizontal="@dimen/dimen_25dp"
+                            android:textColor="@color/grey_100"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="@dimen/dimen_16dp"/>
+                    </LinearLayout>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:id="@+id/swiperRefreshLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/listProduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:paddingHorizontal="@dimen/dimen_5dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:orientation="vertical"
+                            />
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </FrameLayout>
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>

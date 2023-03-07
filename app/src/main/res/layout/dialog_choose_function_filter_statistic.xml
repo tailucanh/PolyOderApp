@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:id="@+id/dialog_chooser_function"
         android:elevation="10dp"
-        android:background="@drawable/custom_border_view_function_img_product"
+        android:background="@drawable/custom_border_view_function"
         android:layout_gravity="bottom"
         android:paddingBottom="@dimen/dimen_15dp"
         android:paddingTop="@dimen/dimen_10dp">

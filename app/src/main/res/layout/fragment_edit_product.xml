@@ -33,7 +33,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semi_bold"
+                android:textStyle="bold"
                 android:text="Sửa sản phẩm"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dimen_20dp"

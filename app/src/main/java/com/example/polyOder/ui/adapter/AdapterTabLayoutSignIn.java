@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.polyOder.ui.TabSignIn.FragmentSignInAdmin;
-import com.example.polyOder.ui.TabSignIn.FragmentSignInUser;
+import com.example.polyOder.ui.tabFragment.FragmentSignInAdmin;
+import com.example.polyOder.ui.tabFragment.FragmentSignInUser;
 
 
 public class AdapterTabLayoutSignIn extends FragmentStateAdapter {

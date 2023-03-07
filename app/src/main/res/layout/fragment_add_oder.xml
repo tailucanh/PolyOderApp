@@ -41,6 +41,10 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Đơn + tên bàn"
                 android:textColor="@color/black"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:ellipsize="end"
+                android:maxEms="15"
                 android:textSize="@dimen/dimen_19dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -240,20 +244,31 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|top"
-                    android:elevation="@dimen/dimen_7dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Ghi chú thêm"
+                    android:text="Ghi chú "
                     android:textColor="@color/black"
-                    android:textSize="@dimen/dimen_20dp" />
+                    android:layout_marginTop="@dimen/dimen_6dp"
+                    android:layout_gravity="center|top"
+                    android:textSize="@dimen/dimen_17dp"
+                    android:elevation="@dimen/dimen_7dp" />
+                <ImageView
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="@dimen/dimen_65dp"
+                    android:src="@drawable/ic_ribbon"
+                    android:scaleType="fitXY"
+                    android:elevation="@dimen/dimen_6dp"
+                    android:layout_gravity="center|top"/>
+
+
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_30dp"
                     android:layout_marginBottom="@dimen/dimen_20dp"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="@dimen/dimen_6dp">
+                    app:cardElevation="@dimen/dimen_5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -264,8 +279,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="@dimen/dimen_30dp"
-                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_width="@dimen/dimen_25dp"
+                            android:layout_height="@dimen/dimen_25dp"
                             android:src="@drawable/ic_outline_note_oder"
                             app:tint="@color/grey_150" />
 
@@ -277,7 +292,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:inputType="text"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/dimen_18dp" />
+                            android:textSize="@dimen/dimen_17dp" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -300,7 +315,6 @@
                     android:layout_height="@dimen/dimen_50dp"
                     android:text="Hủy đơn hàng"
                     android:textSize="@dimen/dimen_17dp"
-
                     android:background="@drawable/custom_button_details_product"
                     android:textColor="@color/red"
                     android:textAllCaps="false"

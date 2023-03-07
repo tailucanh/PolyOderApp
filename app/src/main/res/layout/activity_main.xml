@@ -8,60 +8,88 @@
     android:orientation="vertical"
     android:background="@android:color/transparent"
     android:id="@+id/layout_main"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:elevation="@dimen/dimen_5dp"
    >
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fade_control"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent">
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fade_control"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            app:contentInsetEnd="0dp"
-            app:contentInsetStart="0dp"
-            app:fabAlignmentMode="center"
-            app:fabCradleMargin="@dimen/dimen_10dp"
-            app:fabCradleRoundedCornerRadius="@dimen/dimen_45dp"
-            app:fabCradleVerticalOffset="@dimen/dimen_10dp">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_nav"
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottom_appbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/transparent_background"
-                app:itemIconTint="@color/bottom_nav_icon_color"
-                app:itemTextColor="@color/brown_270"
-                app:menu="@menu/menu_home" />
+                android:layout_gravity="bottom"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="@dimen/dimen_10dp"
+                app:fabCradleRoundedCornerRadius="@dimen/dimen_45dp"
+                app:fabCradleVerticalOffset="@dimen/dimen_10dp">
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
-        <com.andremion.counterfab.CounterFab
-            android:id="@+id/fab_oder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#F6F1F1"
-            android:src="@drawable/ic_cart"
-            app:backgroundTint="@color/white"
-            app:layout_anchor="@id/bottom_appbar"
-            app:maxImageSize="30dp"
-            app:badgeBackgroundColor="@color/brown_110"
-            app:badgePosition="RightTop"
-            app:badgeTextColor="@color/white"
-            />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottom_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_background"
+                    app:itemIconTint="@color/bottom_nav_icon_color"
+                    app:itemTextColor="@color/brown_270"
+                    app:menu="@menu/menu_home"
+                    android:menuCategory="secondary"/>
 
+            </com.google.android.material.bottomappbar.BottomAppBar>
+            <com.andremion.counterfab.CounterFab
+                android:id="@+id/fab_oder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F6F1F1"
+                android:src="@drawable/ic_cart"
+                app:backgroundTint="@color/white"
+                app:layout_anchor="@id/bottom_appbar"
+                app:maxImageSize="30dp"
+                app:badgeBackgroundColor="@color/brown_110"
+                app:badgePosition="RightTop"
+                app:badgeTextColor="@color/white"
+                />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/layout_blur"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@drawable/custom_bg_view_blur"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/ic_close_bee"
+        android:layout_width="@dimen/dimen_60dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:src="@drawable/ic_outline_cancel"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/dimen_100dp"
+         android:translationY="250dp"
+        />
 
-
-
-
-
+    <ImageButton
+        android:id="@+id/ic_bee"
+        android:layout_width="@dimen/dimen_90dp"
+        android:layout_height="@dimen/dimen_75dp"
+        android:background="@drawable/ic_bee"
+        android:scaleType="centerInside"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="@dimen/dimen_35dp" />
 
 
 </FrameLayout>

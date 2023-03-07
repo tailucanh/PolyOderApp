@@ -18,11 +18,14 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.polyOder.MainActivity;
 import com.example.polyOder.R;
 import com.example.polyOder.base.BaseFragment;
+import com.example.polyOder.base.Helpers;
+
 import com.example.polyOder.databinding.FragmentProductBinding;
+import com.example.polyOder.interfaces.OnTouchTheProduct;
 import com.example.polyOder.model.Product;
 import com.example.polyOder.model.TypeProduct;
 import com.example.polyOder.model.User;
-import com.example.polyOder.product.Adapter.ProductAdapter;
+import com.example.polyOder.product.adapter.ProductAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -34,16 +37,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ProductFragment extends BaseFragment implements  ProductAdapter.OnClickItemListener{
-    private FragmentProductBinding bindProduct = null;
+public class ProductFragment extends BaseFragment implements OnTouchTheProduct {
+    private FragmentProductBinding binding = null;
     private ArrayList<Product> listProduct;
     public ProductAdapter productAdapter = null;
     private TypeProduct typeProduct;
-    private User user;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
-    MainActivity mainActivity;
-
+    private Helpers helpers = new Helpers();
 
 
     public ProductFragment() {
@@ -51,10 +50,6 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
 
     public ProductFragment(TypeProduct typeProduct) {
         this.typeProduct = typeProduct;
-    }
-
-    public ProductFragment newInstance2() {
-        return new ProductFragment(typeProduct);
     }
 
     public static ProductFragment newInstance() {
@@ -74,39 +69,34 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        bindProduct = FragmentProductBinding.inflate(inflater, container, false);
-        return bindProduct.getRoot();
+        binding = FragmentProductBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        user = new User();
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(bindProduct.toolbar);
-        bindProduct.collapsingToolbar.setExpandedTitleColor(getContext().getColor(android.R.color.transparent));
+
+        ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbar);
+        binding.collapsingToolbar.setExpandedTitleColor(getContext().getColor(android.R.color.transparent));
 
         if (typeProduct == null) {
-            bindProduct.tvNameTypeProduct.setText(R.string.text_type_product_1);
-            bindProduct.collapsingToolbar.setTitle("Danh sách sản phẩm");
+            binding.tvNameTypeProduct.setText(R.string.text_type_product_1);
+            binding.collapsingToolbar.setTitle("Danh sách sản phẩm");
             listProduct = new ArrayList<>();
             getProduct();
         } else {
-            bindProduct.tvNameTypeProduct.setText(typeProduct.getNameType());
-            bindProduct.collapsingToolbar.setTitle("Danh sách sản phẩm loại "+typeProduct.getNameType().toLowerCase());
+            binding.tvNameTypeProduct.setText(typeProduct.getNameType());
+            binding.collapsingToolbar.setTitle("Danh sách sản phẩm loại "+typeProduct.getNameType().toLowerCase());
             listProduct = new ArrayList<>();
             getFilterProduct();
         }
         productAdapter = new ProductAdapter(listProduct, ProductFragment.this,getActivity());
-        LinearLayoutManager layoutManager  = new LinearLayoutManager(getContext());
-        layoutManager.setStackFromEnd(true);
-        layoutManager.setReverseLayout(true);
-        bindProduct.listProduct.setLayoutManager(layoutManager);
-        bindProduct.listProduct.setAdapter(productAdapter);
+        helpers.setReverseItemRecycleView(getContext(), binding.listProduct);
+        binding.listProduct.setAdapter(productAdapter);
 
-        mainActivity.showBottomBar();
+        showBottomBar();
         listening();
         initObSever();
 
@@ -114,16 +104,15 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
 
     @Override
     public void loadData() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("users").child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+       getDataFirebaseUser("users", new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user = snapshot.getValue(User.class);
-                if (firebaseUser != null && !user.isUserAuthorization()) {
-                    bindProduct.fabAddProduct.setVisibility(View.GONE);
+                User user = snapshot.getValue(User.class);
+                if (FirebaseAuth.getInstance().getCurrentUser().getUid() != null && !user.isUserAuthorization()) {
+                    binding.fabAddProduct.setVisibility(View.GONE);
 
                 }else {
-                    bindProduct.fabAddProduct.setVisibility(View.VISIBLE);
+                    binding.fabAddProduct.setVisibility(View.VISIBLE);
                     showHideWhenScroll();
                 }
             }
@@ -136,15 +125,15 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
 
     @Override
     public void listening() {
-        bindProduct.fabAddProduct.setOnClickListener(v -> {
+        binding.fabAddProduct.setOnClickListener(v -> {
             replaceFragment(new AddProductFragment().newInstance());
         });
-        bindProduct.layoutType.setOnClickListener(layout -> {
+        binding.layoutType.setOnClickListener(layout -> {
             replaceFragment(new TypeProductFragment().newInstance());
         });
 
-        bindProduct.searchViewProduct.clearFocus();
-        bindProduct.searchViewProduct.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.searchViewProduct.clearFocus();
+        binding.searchViewProduct.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -156,7 +145,7 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
                 return true;
             }
         });
-        bindProduct.swiperRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        binding.swiperRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (typeProduct == null) {
@@ -164,38 +153,13 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
                 } else {
                     getFilterProduct();
                 }
-                bindProduct.listProduct.setAdapter(productAdapter);
-                bindProduct.swiperRefreshLayout.setRefreshing(false);
+                binding.listProduct.setAdapter(productAdapter);
+                binding.swiperRefreshLayout.setRefreshing(false);
             }
         });
-        bindProduct.listProduct.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
 
-            }
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (dy > 0) {
-                    mainActivity.visibilityOfBottom(false);
-                } else {
-                    mainActivity.visibilityOfBottom(true);
-                }
-            }
-        });
-        bindProduct.nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(@NonNull NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY) {
-                    mainActivity.visibilityOfBottom(false);
-                }
-                if (scrollY < oldScrollY) {
-                    mainActivity.visibilityOfBottom(true);
-                }
+        visibleBottomBarOnScroll( binding.listProduct,binding.nestedScrollView);
 
-            }
-        });
 
     }
 
@@ -209,15 +173,10 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
 
 
     }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        mainActivity = (MainActivity)context;
-    }
+
 
     private void getProduct() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("list_product");
-        reference.addValueEventListener(new ValueEventListener() {
+        getDataFromFirebase2("list_product" ,new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listProduct.clear();
@@ -227,15 +186,14 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
                         listProduct.add(product);
                     }
                 }
-                bindProduct.tvCountProduct.setText("Có " + listProduct.size() + " sản phẩm");
-                productAdapter.notifyDataSetChanged();
+                visibleViewByList(listProduct,"Có " + listProduct.size() + " sản phẩm ", "Chưa có dữ liệu" );
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
-        });
-        reference.addChildEventListener(new ChildEventListener() {
+        },new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -276,8 +234,7 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
     }
 
     private void getFilterProduct() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("list_product");
-        reference.addValueEventListener(new ValueEventListener() {
+        getDataFromFirebase2("list_product",new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listProduct.clear();
@@ -291,16 +248,16 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
                         listFilter.add(product);
                     }
                 }
+
                 listProduct.retainAll(listFilter);
-                bindProduct.tvCountProduct.setText("Có " + listProduct.size() + " sản phẩm ");
-                productAdapter.notifyDataSetChanged();
+                visibleViewByList(listProduct,"Có " + listProduct.size() + " sản phẩm ", "Không có sản phẩm thuộc loại "+"\""+typeProduct.getNameType()+"\"" );
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
-        });
-        reference.addChildEventListener(new ChildEventListener() {
+        }, new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -339,6 +296,22 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
 
     }
 
+    private void visibleViewByList(ArrayList arrayList, String strContent, String strNull){
+        if(!(helpers.isEmptyList(arrayList))){
+            visibleViewData(View.VISIBLE, View.GONE , strContent,"");
+            productAdapter.notifyDataSetChanged();
+        }else {
+            visibleViewData(View.GONE, View.VISIBLE , "",strNull);
+        }
+    }
+
+    private void visibleViewData(int visible1,int visible2, String content, String notificator){
+        binding.tvCountProduct.setText(content);
+        binding.listProduct.setVisibility(visible1);
+        binding.layoutNotifiNullData.setVisibility(visible2);
+        binding.tvContentNull.setText(notificator);
+
+    }
 
     private void filterList(String text, ArrayList<Product> listProduct) {
         ArrayList<Product> filterLists = new ArrayList<>();
@@ -349,25 +322,28 @@ public class ProductFragment extends BaseFragment implements  ProductAdapter.OnC
         }
         if (!filterLists.isEmpty()) {
             productAdapter.setFilterList(filterLists);
-            bindProduct.tvCountProduct.setText("Có " + filterLists.size() + " sản phẩm.");
+            visibleViewData(View.VISIBLE, View.GONE , "Có " + filterLists.size() + " sản phẩm.","");
+        }else {
+            visibleViewData(View.GONE, View.VISIBLE , "","Không có sản phẩm  "+"\"" +text+"\"");
+
         }
     }
 
 
     private void showHideWhenScroll() {
-        bindProduct.listProduct.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.listProduct.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 //dy > 0: scroll up; dy < 0: scroll down
-                if (dy > 0) bindProduct.fabAddProduct.hide();
-                else  bindProduct.fabAddProduct.show();
+                if (dy > 0) binding.fabAddProduct.hide();
+                else  binding.fabAddProduct.show();
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
     }
 
     @Override
-    public void onClickItemProduct(Product product) {
+    public void onClickProduct(Product product) {
         replaceFragment(new DetailProductFragment(product));
     }
 }
