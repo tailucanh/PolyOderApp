@@ -1,7 +1,7 @@
 # Ứng dụng quản lý quán cà phê PolyOder [<img src="https://user-images.githubusercontent.com/93418649/235179030-38b92176-21f8-4ecf-858f-9567f1c9ec27.png" width="5%"/>](https://user-images.githubusercontent.com/93418649/235179030-38b92176-21f8-4ecf-858f-9567f1c9ec27.png)
 
 ![tag](https://user-images.githubusercontent.com/93418649/235179808-55901d2d-74ce-4fa6-8005-f29ebc277bb2.png) **PolyOder** là một ứng dụng được tạo ra nhằm đáp ứng nhu cầu quản lý kinh doanh các mô hình quán cà phê vừa và nhỏ, không quá phức tạp nhưng vẫn đầy đủ chức năng, thao tác đơn giản. Dữ liệu đồng bộ với nhau nên có thể sử dụng nhiều thiết bị cùng một lúc. 
-[<img src="https://user-images.githubusercontent.com/93418649/235180614-af1902df-cf03-4196-9bb2-94e90c06416f.jpg" width="15%"/>](https://user-images.githubusercontent.com/93418649/235180614-af1902df-cf03-4196-9bb2-94e90c06416f.jpg)
+[<img src="https://user-images.githubusercontent.com/93418649/235180614-af1902df-cf03-4196-9bb2-94e90c06416f.jpg" width="18%"/>](https://user-images.githubusercontent.com/93418649/235180614-af1902df-cf03-4196-9bb2-94e90c06416f.jpg)
 > ## Dưới đây là một số mô tả cơ bản về app
 ## 1. Đăng kí, đăng nhập 
 [<img src="https://user-images.githubusercontent.com/93418649/235182909-1ccfe1b3-521c-4625-89e2-9d6009e98a04.jpg" width="24%"/>](https://user-images.githubusercontent.com/93418649/235182909-1ccfe1b3-521c-4625-89e2-9d6009e98a04.jpg)
