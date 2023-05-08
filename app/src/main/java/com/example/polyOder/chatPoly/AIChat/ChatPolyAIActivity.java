@@ -112,7 +112,7 @@ public class ChatPolyAIActivity extends AppCompatActivity {
 
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .post(body)
                 .build();
 

@@ -16,6 +16,8 @@ import com.example.polyOder.databinding.ActivitySignInBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.time.LocalDate;
+
 public class HelloScreenActivity extends AppCompatActivity {
     private ActivityHelloScreenBinding binding = null;
     @Override
@@ -43,6 +45,11 @@ public class HelloScreenActivity extends AppCompatActivity {
                 finish();
             }
         },2700);
+        LocalDate now = LocalDate.now();
+        int year = now.getYear();
+        binding.textFooter.setText("Copy right ©2022 - " +year+". All rights reserved.");
+
+
     }
 
 
